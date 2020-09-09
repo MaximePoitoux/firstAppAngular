@@ -1,0 +1,39 @@
+<div class="pink">
+    <div *ngIf="show"
+        [hidden]="hidden"
+        [style.visibility]="visibility">
+        {{ title }}
+    </div> <!-- INTERPOLATION -->
+    <div class="contanerButton">
+        <button (click)="toggleShow()"><i class="fab fa-amazon"></i></button> <!-- BINDING D'EVENEMENTS -->
+        <button (click)="toggleHidden()"><i class="fab fa-amazon"></i></button>
+        <button (click)="toggleVisible()"><i class="fab fa-amazon"></i></button>
+        </div>
+    <img class="image1" [src]="imageSrc" [alt]="nom"> <!-- BINDING -->
+    <input [(ngModel)]="nom"> <!-- BINDING TWO-WAY -->
+
+    <ul>
+        <li>Jambon</li>
+        <li [ngStyle]="{backgroundColor : isThisIngredientVital ? 'red' : 'yellow'}">Fromage</li>
+        <li>Cornichons</li>
+        <li>Soupe</li>
+        <li [ngClass]="{'vital' : isThisIngredientVital}">Miel</li>
+    </ul>
+
+    <hr>
+
+    <ul *appDisplayGuests="displayGuestList">
+        <li>Maxime</li>
+        <li>Jean</li>
+        <li>Léa</li>
+        <li>Nico</li>
+        <li>Alphonse</li>
+    </ul>
+
+    <hr>
+
+    <ul *ngFor="let song of songList">
+        <li>{{ song }}</li>
+    </ul>
+    <h1 appHighlight>Raclette</h1>
+</div>
